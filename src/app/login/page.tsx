@@ -1,11 +1,13 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+    const router = useRouter();
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
@@ -23,8 +25,9 @@ export default function LoginPage() {
                 throw new Error("Invalid username or password");
             }
 
-            const data = await res.json();
-            alert(`Welcome, ${data.firstName} ${data.lastName}!`);
+            await res.json();
+            // alert(`Welcome, ...`);
+            router.push("/playlists");
         } catch (err: unknown) {
             if (err instanceof Error) {
                 setError(err.message);
