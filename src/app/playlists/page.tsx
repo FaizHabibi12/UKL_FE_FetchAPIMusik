@@ -29,7 +29,7 @@ export default function PlaylistPage() {
             {playlists.map((playlist) => (
                 <div
                     key={playlist.uuid}
-                    className="border-2 border-gray-800 rounded p-4 mb-4 bg-black shadow cursor-pointer"
+                    className="border-2 border-gray-400 rounded p-4 mb-4 bg-black shadow cursor-pointer"
                     onClick={() => router.push(`/songPlaylists/${playlist.uuid}`)}
                 >
                     <div className="font-bold text-xl mb-1 text-white">
